@@ -1,10 +1,10 @@
 LOCAL_DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'akava_blog',
-        'USER': 'blog',
-        'PASSWORD': 'blog',
-        'HOST': 'localhost',
+        'NAME': 'akava_site',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '',
     }
 }
