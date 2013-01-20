@@ -1,5 +1,8 @@
 Django==1.4.3
 South==0.7.6
 argparse==1.2.1
+distribute==0.6.10
+## FIXME: could not find svn URL in dependency_links for this package:
+flup==1.0.3
 psycopg2==2.4.6
 wsgiref==0.1.2
