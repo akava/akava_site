@@ -19,5 +19,5 @@ def deploy():
         run_in_virtualenv('pip install -r requirements.txt')
         run_in_virtualenv('python manage.py syncdb')
         run_in_virtualenv('python manage.py migrate')
-        run_in_virtualenv('python manage.py clear_cache')
+        #run_in_virtualenv('python manage.py clear_cache')
         run('~/init/%s restart' % (PROJECT_NAME,))
