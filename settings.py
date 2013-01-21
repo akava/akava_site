@@ -5,6 +5,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+FORCE_SCRIPT_NAME = ""
 
 ADMINS = (
      ('Andrei Kavaleu', 'andrei.kavaleu@gmail.com'),
@@ -35,7 +36,7 @@ LANGUAGE_CODE = 'ru-RU'
 
 DATE_FORMAT = 'd.m.Y'
 
-SITE_ID = 1
+SITE_ID = 2
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
