@@ -27,7 +27,7 @@ case "$1" in
   start)
       echo -n "Starting $NAME: "
       if PYTHONPATH=$PYTHONPATH start-stop-daemon -d $PROJECT_DIR --start --quiet --pidfile $PIDFILE --exec $DAEMON -- $OPTS ; then
-	success
+	    success
       else
         fail
       fi
