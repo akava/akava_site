@@ -5,5 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Hello World! Content will be here soon</h2>
+
+<div>
+{% for e in entries %}
+    <h2>{{ e.title|safe }}</h2>
+    <div>{{ e.text|safe }}</div>
+{% endfor %}
+</div>
+
+
 {% endblock %}
