@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+from django.core.urlresolvers import reverse
 
 class Entry(models.Model):
     LIVE_STATUS = 1
@@ -26,4 +27,8 @@ class Entry(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog.views.entry', args=[self.id, self.slug])
+
 
