@@ -8,11 +8,14 @@
 
 <div>
 {% for e in entries %}
-    <h2>
-        {% ifequal e.status 2 %} *DRAFT* {% endifequal %} {% ifequal e.status 3 %} *HIDDEN* {% endifequal %}
-        <a href="{{ e.get_absolute_url }}">{{ e.title|safe }}</a>
-    </h2>
-    <div>{{ e.text|safe }}</div>
+    <div class="entry">
+        <h3>
+            <a href="{{ e.get_absolute_url }}">{{ e.title|safe }}</a>
+            {% ifequal e.status 2 %} *DRAFT* {% endifequal %} {% ifequal e.status 3 %} *HIDDEN* {% endifequal %}
+        </h3>
+        <div>{{ e.text|safe }}</div>
+    </div>
+    <hr/>
 {% endfor %}
 </div>
 {% endblock %}

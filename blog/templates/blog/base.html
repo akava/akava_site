@@ -1,16 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap -->
+    <link href="{{ STATIC_URL }}blog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{{ STATIC_URL }}blog/css/all.css" rel="stylesheet" media="screen">
 
-<title>{% block title %}{% endblock %}</title>
-
-{% block extrahead %}{% endblock %}
-
+    {% block extrahead %}{% endblock %}
 </head>
 <body>
+<script src="{{ STATIC_URL }}blog/js/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}blog/js/bootstrap.min.js"></script>
 
-{% block body %}{% endblock %}
 
+<div class="container">
+<div id="header" class="row">
+    <div class="span1 offset1"><img src="{{ STATIC_URL }}blog/img/face.png" /></div>
+    <div class="span5">
+        <h2><a href="">Andrei Kavaleu's blog</a></h2>
+        *)*)$#(&$##)$)(@*#)%&)@*$)(&%)(*)_#$
+    </div>
+    <div id="nav-menu" class="span3 offset2">
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a href="#">Home</a>
+            </li>
+            <li><a href="#">About me</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="content" class="row">
+    <div class="span9">
+    <div>
+        {% block body %}{% endblock %}
+    </div>
+    </div>
+    <div class="span3">
+        <div>
+            <h3>sidebar</h3>
+        </div>
+    </div>
+</div>
+
+<div id="footer" class="row">
+
+</div>
+</div>
 </body>
 </html>
