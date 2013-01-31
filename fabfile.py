@@ -17,6 +17,7 @@ def deploy():
         run_in_virtualenv('pip install -r requirements.txt')
         run_in_virtualenv('python manage.py syncdb')
         run_in_virtualenv('python manage.py migrate')
+        run_in_virtualenv('python manage.py collectstatic --noinput')
         #run_in_virtualenv('python manage.py clear_cache')
         run('~/init/%s restart' % (PROJECT_NAME,))
 
@@ -24,5 +25,5 @@ def local_deploy():
     local('cd ' + DEV_DIR)
     local('python manage.py collectstatic --noinput')
     local('cp -ru %s %s/..' % (DEV_DIR, PROJECT_DIR))
-    local('rm -r %s/static' % (DEV_DIR,))
+    #local('rm -r %s/static' % (DEV_DIR,))
     local('~/init/%s restart' % (PROJECT_NAME,))

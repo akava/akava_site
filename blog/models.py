@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.text import truncate_html_words
 
 class Entry(models.Model):
     LIVE_STATUS = 1
@@ -24,11 +25,16 @@ class Entry(models.Model):
 
     class Meta:
         verbose_name_plural = 'Entries'
+        ordering = ['-published']
 
     def __unicode__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse('blog.views.entry', args=[self.id, self.slug])
+
+    @property
+    def short_text(self):
+        return truncate_html_words(self.text, 50)
 
 
