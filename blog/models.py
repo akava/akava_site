@@ -30,6 +30,12 @@ class Entry(models.Model):
     def __unicode__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        import markdown2
+        if self.text_markdown:
+            self.text = markdown2.markdown(self.text_markdown)
+        super(Entry, self).save(*args, **kwargs)
+
     def get_absolute_url(self):
         return reverse('blog.views.entry', args=[self.id, self.slug])
 
