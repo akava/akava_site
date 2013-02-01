@@ -13,6 +13,7 @@ def run_in_virtualenv(command):
 
 def deploy():
     with cd(PROJECT_DIR):
+        local('git push')
         run('git pull')
         run_in_virtualenv('pip install -r requirements.txt')
         run_in_virtualenv('python manage.py syncdb')
