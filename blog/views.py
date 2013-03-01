@@ -17,7 +17,7 @@ def entry(request, id, slug):
         raise Http404
 
     if slug != entry.slug:
-        return HttpResponseRedirect(entry.get_absolute_url)
+        return HttpResponseRedirect(entry.get_absolute_url())
 
     return render(request,
                   'blog/entry.html',
