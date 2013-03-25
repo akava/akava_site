@@ -1,0 +1,3 @@
+[submodule "externals/angular_tutor"]
+	path = externals/angular_tutor
+	url = git://github.com/akava/Angular-Tutor.git
