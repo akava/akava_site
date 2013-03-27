@@ -11,9 +11,9 @@ def run_in_virtualenv(command):
     run('source ~/.virtualenvs/%s/bin/activate && %s' %
         (PROJECT_NAME, command))
 
-def deploy():
+def deploy(switch='no'):
     with cd(PROJECT_DIR):
-        local('git push')
+        if switch == 'push': local('git push')
         run('git pull')
         run_in_virtualenv('pip install -r requirements.txt')
         run_in_virtualenv('python manage.py syncdb')
