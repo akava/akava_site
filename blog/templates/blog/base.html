@@ -36,7 +36,10 @@
         {% block body %}{% endblock %}
     </div>
     <div class="span3">
-        <h3>sidebar</h3>
+        <h4>Featured</h4>
+        {% for f in featured %}
+            <a href="{{ f.get_absolute_url }}">{{ f.title|safe }}</a>
+        {% endfor %}
     </div>
 </div>
 
