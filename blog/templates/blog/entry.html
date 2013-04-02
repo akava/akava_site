@@ -6,6 +6,7 @@
 {% block body %}
     <h3>
         <a href="{{ item.get_absolute_url }}">{{ item.title|safe }}</a>
+        {% if item.featured  %}<img src="{{ STATIC_URL }}blog/img/blue-star-icon.png" title="featured" style="padding-bottom: 5px;" />{% endif %}
         {% ifequal item.status 2 %} *DRAFT* {% endifequal %} {% ifequal item.status 3 %} *HIDDEN* {% endifequal %}
     </h3>
     <div>

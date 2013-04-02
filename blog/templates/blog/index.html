@@ -11,6 +11,7 @@
     <div class="entry">
         <h3>
             <a href="{{ e.get_absolute_url }}">{{ e.title|safe }}</a>
+            {% if e.featured  %}<img src="{{ STATIC_URL }}blog/img/blue-star-icon.png" title="featured" style="padding-bottom: 5px;" />{% endif %}
             {% ifequal e.status 2 %} *DRAFT* {% endifequal %} {% ifequal e.status 3 %} *HIDDEN* {% endifequal %}
         </h3>
         <div>

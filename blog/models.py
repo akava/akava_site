@@ -17,10 +17,9 @@ class Entry(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     edited = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=DRAFT_STATUS,
-        help_text=u'Only entries with "Live" status will be displayed '\
-                  u'publicly.')
-    text_markdown = models.TextField(help_text=u'Use Markdown syntax',
-                                    blank=True, null=True)
+                    help_text=u'Only entries with "Live" status will be displayed publicly.')
+    featured = models.BooleanField(default=False, help_text=u'Featured article')
+    text_markdown = models.TextField(blank=True, null=True, help_text=u'Use Markdown syntax')
     text = models.TextField(blank=True, null=True)
 
     class Meta:
