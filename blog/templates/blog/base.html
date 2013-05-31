@@ -38,7 +38,7 @@
     <div class="span3">
         <h4>Featured</h4>
         {% for f in featured %}
-            <a href="{{ f.get_absolute_url }}">{{ f.title|safe }}</a>
+            <p><a href="{{ f.get_absolute_url }}">{{ f.title|safe }}</a></p>
         {% endfor %}
     </div>
 </div>
