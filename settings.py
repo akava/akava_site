@@ -2,6 +2,8 @@
 import os.path
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+import django.conf.global_settings as DEFAULT_SETTINGS
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -101,6 +103,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'blog.context_processors.featured_entries',
 )
 
 ROOT_URLCONF = 'urls'

@@ -7,7 +7,7 @@ class LatestEntriesFeed(Feed):
     link = "/blog/"
 
     def items(self):
-        return list(Entry.objects.filter(status__exact=Entry.LIVE_STATUS).all()[:10])
+        return list(Entry.live.all()[:10])
 
     def item_title(self, item):
         return item.title

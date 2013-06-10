@@ -6,11 +6,9 @@ from blog.models import Entry
 
 def index(request):
     entries = Entry.objects.all() if request.user.is_superuser else Entry.live.all()
-    featured = entries.filter(featured__exact=True).all()
     return render(request,
                   'blog/index.html',
-                  {'entries': entries,
-                   'featured': featured})
+                  {'entries': entries})
 
 
 def entry(request, id, slug):
@@ -22,9 +20,6 @@ def entry(request, id, slug):
 
     if slug != entry.slug:
         return HttpResponseRedirect(entry.get_absolute_url())
-
-    featured = entries.filter(featured__exact=True).all()
     return render(request,
                   'blog/entry.html',
-                  {'item': entry,
-                   'featured': featured})
+                  {'item': entry})

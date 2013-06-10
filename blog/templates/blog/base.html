@@ -40,7 +40,7 @@
     </div>
     <div class="span3">
         <h4>Featured</h4>
-        {% for f in featured %}
+        {% for f in featured_entries %}
             <p><a href="{{ f.get_absolute_url }}">{{ f.title|safe }}</a></p>
         {% endfor %}
     </div>
