@@ -3,6 +3,9 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.text import truncate_html_words
 
+import managers
+
+
 class Entry(models.Model):
     LIVE_STATUS = 1
     DRAFT_STATUS = 2
@@ -17,10 +20,13 @@ class Entry(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     edited = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=DRAFT_STATUS,
-                    help_text=u'Only entries with "Live" status will be displayed publicly.')
+                                 help_text=u'Only entries with "Live" status will be displayed publicly.')
     featured = models.BooleanField(default=False, help_text=u'Featured article')
     text_markdown = models.TextField(blank=True, null=True, help_text=u'Use Markdown syntax')
     text = models.TextField(blank=True, null=True)
+
+    objects = models.Manager()
+    live = managers.LiveEntryManager()
 
     class Meta:
         verbose_name_plural = 'Entries'
@@ -31,6 +37,7 @@ class Entry(models.Model):
 
     def save(self, *args, **kwargs):
         import markdown2
+
         if self.text_markdown:
             self.text = markdown2.markdown(self.text_markdown)
         super(Entry, self).save(*args, **kwargs)
@@ -41,5 +48,3 @@ class Entry(models.Model):
     @property
     def short_text(self):
         return truncate_html_words(self.text, 50)
-
-
