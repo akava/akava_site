@@ -1,7 +1,7 @@
-import datetime
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.text import truncate_html_words
+from django.utils import timezone
 
 import managers
 
@@ -16,7 +16,7 @@ class Entry(models.Model):
 
     title = models.CharField(max_length=250)
     slug = models.SlugField(help_text=u'Used in the URL of the entry.')
-    published = models.DateTimeField(default=datetime.datetime.today)
+    published = models.DateTimeField(default=timezone.now())
     created = models.DateTimeField(auto_now_add=True)
     edited = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=DRAFT_STATUS,
@@ -43,7 +43,7 @@ class Entry(models.Model):
         super(Entry, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('blog.views.entry', args=[self.id, self.slug])
+        return reverse('blog_entry', args=[self.id, self.slug])
 
     @property
     def short_text(self):

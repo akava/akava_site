@@ -22,4 +22,4 @@ def entry(request, id, slug):
         return HttpResponseRedirect(entry.get_absolute_url())
     return render(request,
                   'blog/entry.html',
-                  {'item': entry})
+                  {'entry': entry})
