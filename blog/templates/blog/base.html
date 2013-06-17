@@ -1,3 +1,5 @@
+{%  load blog_tags %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +42,7 @@
     </div>
     <div class="span3">
         <h4>Featured</h4>
+        {% load_featured_entries as featured_entries %}
         {% for f in featured_entries %}
             <p><a href="{{ f.get_absolute_url }}">{{ f.title|safe }}</a></p>
         {% endfor %}
