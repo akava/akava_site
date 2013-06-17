@@ -23,7 +23,7 @@ def deploy(switch='no'):
         run_in_virtualenv('python manage.py migrate')
         run_in_virtualenv('python manage.py collectstatic --noinput')
         #run_in_virtualenv('python manage.py clear_cache')
-        run('restart' + PROJECT_NAME)
+        run('~/init/%s restart' % (PROJECT_NAME,))
 
 
 def local_deploy():
@@ -31,7 +31,7 @@ def local_deploy():
     local('python manage.py collectstatic --noinput')
     local('cp -ru %s %s/..' % (DEV_DIR, PROJECT_DIR))
     #local('rm -r %s/static' % (DEV_DIR,))
-    run('restart' + PROJECT_NAME)
+    run('~/init/%s restart' % (PROJECT_NAME,))
 
 
 import settings
