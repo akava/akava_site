@@ -34,7 +34,7 @@
             <li {% if request.path == home_url %}class="active"{% endif %}>
                 <a href="{{ home_url }}">Home</a>
             </li>
-            <li {% if request.path == blog_url %}class="active"{% endif %}>
+            <li {% if blog_url in request.path %}class="active"{% endif %}>
                 <a href="{{ blog_url }}">Blog</a>
             </li>
             <li {% if request.path == about_me_url %}class="active"{% endif %}>
