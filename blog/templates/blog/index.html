@@ -16,7 +16,7 @@
         </h3>
         <div>
             {{ e.short_text|safe }}
-            {% if e.text != e.shsort_text %}
+            {% if e.text != e.short_text %}
                 <a href="{{ e.get_absolute_url }}">Read more &rarr;</a>
             {% endif %}
         </div>

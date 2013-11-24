@@ -43,7 +43,7 @@ class Entry(models.Model):
         super(Entry, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('blog_entry', args=[self.id, self.slug])
+        return reverse('blog:blog_entry', args=[self.id, self.slug])
 
     @property
     def short_text(self):

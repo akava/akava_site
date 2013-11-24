@@ -23,3 +23,8 @@ def entry(request, id, slug):
     return render(request,
                   'blog/entry.html',
                   {'entry': entry})
+
+
+def about_me(request):
+    return render(request,
+                  'blog/about_me.html')

@@ -22,16 +22,24 @@
     <div class="span5">
         <h2>
             <a href="/">Andrei Kavaleu's blog</a>
-            <a href="feed/" ><img src="{{ STATIC_URL }}blog/img/rss-icon.png" /></a>
+            <a href="{% url 'feed' %}" ><img src="{{ STATIC_URL }}blog/img/rss-icon.png" /></a>
         </h2>
         *)*)$#(&$##)$)(@*#)%&)@*$)(&%)(*)_#$
     </div>
     <div id="nav-menu" class="span3 offset1">
+        {% url 'home' as home_url %}
+        {% url 'blog:root' as blog_url %}
+        {% url 'about_me' as about_me_url %}
         <ul class="nav nav-pills">
-            <li class="active">
-                <a href="#">Home</a>
+            <li {% if request.path == home_url %}class="active"{% endif %}>
+                <a href="{{ home_url }}">Home</a>
             </li>
-            <li><a href="#">About me</a></li>
+            <li {% if request.path == blog_url %}class="active"{% endif %}>
+                <a href="{{ blog_url }}">Blog</a>
+            </li>
+            <li {% if request.path == about_me_url %}class="active"{% endif %}>
+                <a href="{{ about_me_url }}">About me</a>
+            </li>
         </ul>
     </div>
 </div>
