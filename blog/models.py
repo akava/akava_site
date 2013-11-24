@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from django.utils.text import truncate_html_words
+from django.utils.text import Truncator
 from django.utils import timezone
 
 import managers
@@ -47,4 +47,4 @@ class Entry(models.Model):
 
     @property
     def short_text(self):
-        return truncate_html_words(self.text, 50)
+        return Truncator(self.text).words(50, html=True)
