@@ -3,8 +3,9 @@ python:
   - "2.7"
 
 install:
-  - "pip install -r requirements.txt"
+  - pip install -r requirements.txt
 before_script:
-  - "cp local_settings_ci.template local_settings.py"
+  - psql -c 'create database akava_site_test;' -U postgres
+  - cp local_settings_ci.template local_settings.py
 script:
-  - "./manage.py test"
+  - ./manage.py test
