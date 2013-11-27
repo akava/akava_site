@@ -84,12 +84,12 @@ class EntryPageTests(TestCase):
         self.assertIn(self.entry.text, response.content)
 
     def test_404_is_returned_for_non_existing_entries(self):
-        non_valid_url = reverse('blog_entry', args=[999, 'slug-slug'])
+        non_valid_url = reverse('blog:blog_entry', args=[999, 'slug-slug'])
         response = self.client.get(non_valid_url)
         self.assertEqual(response.status_code, 404)
 
     def test_client_is_redirected_if_slug_doesnt_match(self):
-        non_valid_url = reverse('blog_entry', args=[self.entry.id, 'slug-slug'])
+        non_valid_url = reverse('blog:blog_entry', args=[self.entry.id, 'slug-slug'])
         response = self.client.get(non_valid_url)
 
         self.assertRedirects(response, self.entry.get_absolute_url())
