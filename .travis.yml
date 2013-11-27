@@ -4,5 +4,7 @@ python:
 
 install:
   - "pip install -r requirements.txt"
+before_script:
+  - "cp local_settings_ci.template local_settings.py"
 script:
   - "./manage.py test"
