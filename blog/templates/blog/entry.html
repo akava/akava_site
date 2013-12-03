@@ -11,5 +11,7 @@
     </h3>
     <div>
         {{ entry.text|safe }}
+
+        {% include "blog/comments.html" %}
     </div>
 {% endblock %}
