@@ -16,7 +16,7 @@ class Entry(models.Model):
 
     title = models.CharField(max_length=250)
     slug = models.SlugField(help_text=u'Used in the URL of the entry.')
-    published = models.DateTimeField(default=timezone.now())
+    published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     edited = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=DRAFT_STATUS,
