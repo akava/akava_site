@@ -47,8 +47,8 @@ class IndexPageTests(TestCase):
 
         featured_entries = self.client.get("/").context['featured_entries']
 
-        self.assertEqual(list(featured_entries),
-                         list([self.entries.live2, self.entries.live3]))
+        self.assertIn(self.entries.live2, featured_entries)
+        self.assertIn(self.entries.live3, featured_entries)
 
 
 class AdminTests(TestCase):
