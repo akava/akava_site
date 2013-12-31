@@ -1,5 +1,8 @@
-#header > div { margin-top: 30px;}
-#nav-menu { margin-top: 45px!important;}
+#header > div { margin-top: 30px; }
+#nav-menu { margin-top: 45px!important; }
+
+img#face { width: 73px;height: 63px; }
+.blue-star {padding-bottom: 5px;}
 
 #content {margin-top:30px; }
 
