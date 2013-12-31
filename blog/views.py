@@ -25,6 +25,14 @@ def entry(request, id, slug):
                   {'entry': entry})
 
 
+def tag(request, tag_name):
+    entries = Entry.objects if request.user.is_superuser else Entry.live
+    entries = entries.filter(tags__name__in=[tag_name])
+    return render(request,
+                  'blog/index.html',
+                  {'entries': entries})
+
+
 def about_me(request):
     return render(request,
                   'blog/about_me.html')

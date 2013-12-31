@@ -3,6 +3,7 @@ Fabric==1.8.0
 South==0.8.4
 argparse==1.2.1
 distribute==0.7.3
+django-taggit==0.11.2
 docutils==0.11
 ecdsa==0.10
 ## FIXME: could not find svn URL in dependency_links for this package:

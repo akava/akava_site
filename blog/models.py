@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.text import Truncator
 from django.utils import timezone
+from taggit.managers import TaggableManager
 
 import managers
 
@@ -27,6 +28,7 @@ class Entry(models.Model):
 
     objects = models.Manager()
     live = managers.LiveEntryManager()
+    tags = TaggableManager()
 
     class Meta:
         verbose_name_plural = 'Entries'

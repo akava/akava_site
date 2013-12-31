@@ -7,18 +7,20 @@
 {% block body %}
 
 <div>
-{% for e in entries %}
+{% for entry in entries %}
     <div class="entry">
         <h3>
-            <a href="{{ e.get_absolute_url }}">{{ e.title|safe }}</a>
-            {% if e.featured  %}<img src="{{ STATIC_URL }}blog/img/blue-star-icon.png" title="featured" style="padding-bottom: 5px;" />{% endif %}
-            {% ifequal e.status 2 %} *DRAFT* {% endifequal %} {% ifequal e.status 3 %} *HIDDEN* {% endifequal %}
+            <a href="{{ entry.get_absolute_url }}">{{ entry.title|safe }}</a>
+            {% if entry.featured  %}<img src="{{ STATIC_URL }}blog/img/blue-star-icon.png" title="featured" style="padding-bottom: 5px;" />{% endif %}
+            {% ifequal entry.status 2 %} *DRAFT* {% endifequal %} {% ifequal entry.status 3 %} *HIDDEN* {% endifequal %}
         </h3>
         <div>
-            {{ e.short_text|safe }}
-            {% if e.text != e.short_text %}
-                <a href="{{ e.get_absolute_url }}">Read more &rarr;</a>
+            {{ entry.short_text|safe }}
+            {% if entry.text != entry.short_text %}
+                <a href="{{ entry.get_absolute_url }}">Read more &rarr;</a>
             {% endif %}
+
+            {% include 'blog/tags.html' %}
         </div>
     </div>
     <hr/>

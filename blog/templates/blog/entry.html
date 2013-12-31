@@ -11,7 +11,8 @@
     </h3>
     <div>
         {{ entry.text|safe }}
-
-        {% include "blog/comments.html" %}
     </div>
+
+    {% include 'blog/tags.html' %}
+    {% include "blog/comments.html" %}
 {% endblock %}
