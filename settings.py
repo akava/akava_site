@@ -15,6 +15,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+FEED_BURNER_URL = 'http://feeds.feedburner.com/AndreiKavaleuBlog'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

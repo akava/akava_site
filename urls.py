@@ -1,8 +1,10 @@
 from django.conf.urls import patterns, include, url
+from django.contrib import admin
+from django.views.generic.base import RedirectView
+
+from settings import FEED_BURNER_URL
 from blog.feeds import LatestEntriesFeed
 
-
-from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -11,7 +13,8 @@ urlpatterns = patterns('',
     url(r'^about_me/', 'blog.views.about_me', name='about_me'),
 
     # feed
-    url(r'^feed/$', LatestEntriesFeed(), name='feed'),
+    url(r'^feed/$', RedirectView.as_view(url=FEED_BURNER_URL, permanent=True), name='feed'),
+    url(r'^feed_for_burner/$', LatestEntriesFeed(), name='feed_for_burner'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
