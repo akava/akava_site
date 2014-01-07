@@ -5,9 +5,10 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 import django.conf.global_settings as DEFAULT_SETTINGS
 
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 FORCE_SCRIPT_NAME = ""
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 ADMINS = (
      ('Andrei Kavaleu', 'andrei.kavaleu@gmail.com'),
@@ -25,6 +26,7 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
+        'ATOMIC_REQUEST': True,
         }
 }
 

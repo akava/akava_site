@@ -3,5 +3,6 @@ LOCAL_DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
         'NAME': 'akava_site_test',
+        'ATOMIC_REQUEST': True,
     }
 }

@@ -6,6 +6,7 @@ LOCAL_DATABASES = {
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
+        'ATOMIC_REQUEST': True,
     }
 }
 
@@ -14,4 +15,5 @@ if 'test' in sys.argv:
     LOCAL_DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'mydatabase'
+        'ATOMIC_REQUEST': True,
     }
