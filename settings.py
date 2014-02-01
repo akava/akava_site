@@ -137,7 +137,8 @@ INSTALLED_APPS = (
     'south',
     'taggit',
 
-    'blog'
+    'blog',
+    'request_proxy',
 )
 
 # A sample logging configuration. The only tangible logging
