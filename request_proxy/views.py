@@ -13,6 +13,6 @@ def call_proxy(request, slug):
 
     url = proxy.url + "&" + request.GET.urlencode()
 
-    r = requests.request(proxy.method, url)
+    r = requests.get(url)
 
     return HttpResponse(r.text)
