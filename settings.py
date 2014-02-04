@@ -136,9 +136,10 @@ INSTALLED_APPS = (
 
     'south',
     'taggit',
+    'calendar_sms',
 
     'blog',
-    'request_proxy',
+    'sms',
 )
 
 # A sample logging configuration. The only tangible logging

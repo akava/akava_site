@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^feed_for_burner/$', LatestEntriesFeed(), name='feed_for_burner'),
 
     # request proxies
-    url(r'^request_proxy/([\w_-]+)/$', 'request_proxy.views.call_proxy', name='call_proxy'),
+    url(r'^send_sms/$', 'sms.views.send', name='send_sms'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
