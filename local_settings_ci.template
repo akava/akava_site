@@ -6,3 +6,5 @@ LOCAL_DATABASES = {
         'ATOMIC_REQUEST': True,
     }
 }
+
+SMS_SECRET = 'secret'
