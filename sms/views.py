@@ -10,4 +10,8 @@ def send(request):
     if not secret or secret != SMS_SECRET or not text:
         raise Http404
 
-    return HttpResponse(sms.sendSMS(text))
+    try:
+        r = sms.sendSMS(text) or "Sent"  # sendSMS returns None on success
+    except Exception as e:
+        r = e.message
+    return HttpResponse(r)
