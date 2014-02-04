@@ -2,14 +2,15 @@ Django==1.6.1
 Fabric==1.8.1
 South==0.8.4
 argparse==1.2.1
+django-calendar-sms==2.2
 django-taggit==0.11.2
 docutils==0.11
 ecdsa==0.10
 ## FIXME: could not find svn URL in dependency_links for this package:
 flup==1.0.3.dev-20110405
+gdata==2.0.18
 markdown2==2.2.0
 paramiko==1.12.0
 psycopg2==2.5.1
 pycrypto==2.6.1
-requests==2.2.1
 wsgiref==0.1.2
