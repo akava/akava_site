@@ -10,8 +10,6 @@ LOCAL_DATABASES = {
     }
 }
 
-SMS_SECRET = 'secret'
-
 import sys
 if 'test' in sys.argv:
     LOCAL_DATABASES['default'] = {

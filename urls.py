@@ -16,9 +16,6 @@ urlpatterns = patterns('',
     url(r'^feed/$', RedirectView.as_view(url=FEED_BURNER_URL, permanent=True), name='feed'),
     url(r'^feed_for_burner/$', LatestEntriesFeed(), name='feed_for_burner'),
 
-    # request proxies
-    url(r'^send_sms/$', 'sms.views.send', name='send_sms'),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
