@@ -5,28 +5,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <!-- Bootstrap -->
-    <link href="{{ STATIC_URL }}blog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="{{ STATIC_URL }}blog/css/all.css" rel="stylesheet" media="screen">
 
     {% block extrahead %}{% endblock %}
 </head>
 <body>
-<script src="{{ STATIC_URL }}blog/js/jquery.min.js"></script>
-<script src="{{ STATIC_URL }}blog/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 
 <div class="container">
 <div id="header" class="row">
-    <div class="span1 offset2"><img id="face" src="{{ STATIC_URL }}blog/img/face.png" /></div>
-    <div class="span5">
+    <div class="col-md-1 col-md-offset-2"><img id="face" src="{{ STATIC_URL }}blog/img/face.png" /></div>
+    <div class="col-md-5">
         <h2>
             <a href="/">Andrei Kavaleu's blog</a>
             <a href="{% url 'feed' %}" ><img src="{{ STATIC_URL }}blog/img/rss-icon.png" /></a>
         </h2>
         *)*)$#(&$##)$)(@*#)%&)@*$)(&%)(*)_#$
     </div>
-    <div id="nav-menu" class="span3 offset1">
+    <div id="nav-menu" class="col-md-3 col-md-offset-1">
         {% url 'home' as home_url %}
         {% url 'blog:root' as blog_url %}
         {% url 'about_me' as about_me_url %}
@@ -45,10 +44,10 @@
 </div>
 
 <div id="content" class="row">
-    <div class="span8 offset1">
+    <div class="col-md-8 col-md-offset-1">
         {% block body %}{% endblock %}
     </div>
-    <div class="span3">
+    <div class="col-md-3">
         <h4>Featured</h4>
         {% load_featured_entries as featured_entries %}
         {% for f in featured_entries %}
