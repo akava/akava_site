@@ -14,16 +14,18 @@
             {% if entry.featured  %}<img class="blue-star" src="{{ STATIC_URL }}blog/img/blue-star-icon.png" title="featured" />{% endif %}
             {% ifequal entry.status 2 %} *DRAFT* {% endifequal %} {% ifequal entry.status 3 %} *HIDDEN* {% endifequal %}
         </h3>
+        <p class="entry-meta">posted on: {{ entry.published|date:"F, d" }}</p>
         <div>
             {{ entry.short_text|safe }}
             {% if entry.text != entry.short_text %}
-                <a href="{{ entry.get_absolute_url }}">Read more &rarr;</a>
+                <p><a href="{{ entry.get_absolute_url }}">Read more &rarr;</a></p>
             {% endif %}
 
-            {% include 'blog/tags.html' %}
+            <p class="entry-meta"><a href="{{ entry.get_absolute_url }}#disqus_thread"></a> - {% include 'blog/tags.html' %}</p>
         </div>
     </div>
     <hr/>
 {% endfor %}
 </div>
+{% include "blog/comments_count.html" %}
 {% endblock %}

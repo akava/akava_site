@@ -13,6 +13,6 @@
         {{ entry.text|safe }}
     </div>
 
-    {% include 'blog/tags.html' %}
+    <p class="entry-meta">{% include 'blog/tags.html' %}</p>
     {% include "blog/comments.html" %}
 {% endblock %}

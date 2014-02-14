@@ -1,5 +1,4 @@
-<div id="tags">
-    {% for tag in entry.tags.names %}
-        <a href="{%  url 'blog:tag' tag %}"><span class="badge">{{ tag }}</span></a>
-    {% endfor %}
-</div>
+posted in
+{% for tag in entry.tags.names %}
+    <a href="{%  url 'blog:tag' tag %}"><span class="badge">{{ tag }}</span></a>
+{% endfor %}

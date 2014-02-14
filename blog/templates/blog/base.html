@@ -47,7 +47,7 @@
     <div class="col-md-8 col-md-offset-1">
         {% block body %}{% endblock %}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 featured-entries">
         <h4>Featured</h4>
         {% load_featured_entries as featured_entries %}
         {% for f in featured_entries %}
